@@ -17,12 +17,18 @@ export class Logger {
   public transports: Transport<TransportOptions>[];
 
   /**
+   * Default log data values.
+   */
+  public defaults?: LogConfigData;
+
+  /**
    * Creates a new logger.
    * @param name
    * @param options
    */
   public constructor(name: string, options: LoggerOptions = {}) {
     this.name = name;
+    this.defaults = options.defaults;
     this.transports = options.transports ?? [
       new ConsoleTransport({
         formatter: new PrettyFormatter(),
@@ -131,11 +137,16 @@ export class Logger {
    * @private
    */
   private _log(input: unknown[], data: Omit<LogData, "input">): LogData {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const config: LogData = typeof input[0] === "object" && input[0][ConfigSymbol]
-      ? { ...data, ...(input.shift() as LogData) }
-      : data;
+    let config: LogData =
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      typeof input[0] === "object" && input[0][ConfigSymbol]
+        ? { ...data, ...(input.shift() as LogData) }
+        : data;
+
+    if (this.defaults) {
+      config = Object.assign(config, this.defaults);
+    }
 
     config.input = input;
     for (const transport of this.transports)
@@ -157,9 +168,12 @@ export interface LogConfigData {
   extra?: unknown;
   input?: unknown[];
   suffix?: string;
+  // Name of the log.
+  name?: string;
   [ConfigSymbol]?: true;
 }
 
 export interface LoggerOptions {
   transports?: Transport<TransportOptions>[];
+  defaults?: LogConfigData;
 }

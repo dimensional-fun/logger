@@ -22,6 +22,7 @@ export enum ColorKey {
   LOG_LOGGER_NAME = 101,
   LOG_TIMESTAMP = 102,
   LOG_PROCESS_ID = 103,
+  LOG_NAME = 104,
 
   ERROR_CAUSED_BY = 200,
   ERROR_NAME = 201,
@@ -46,6 +47,7 @@ export const PrettyFormatterColors = new Map<PrettyFormatterColorKey, ColorCode>
   .set(ColorKey.LOG_LOGGER_NAME, ColorCode.BLUE)
   .set(ColorKey.LOG_TIMESTAMP, ColorCode.GRAY)
   .set(ColorKey.LOG_PROCESS_ID, ColorCode.BRIGHT_MAGENTA)
+  .set(ColorKey.LOG_NAME, ColorCode.GREEN)
   .set(ColorKey.ERROR_CAUSED_BY, ColorCode.BG_RED)
   .set(ColorKey.ERROR_NAME, ColorCode.UNDERLINE)
   .set(ColorKey.ERROR_CODE, ColorCode.MAGENTA)

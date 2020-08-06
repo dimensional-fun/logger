@@ -40,7 +40,7 @@ export class PrettyFormatter implements Formatter {
     if (data.timestamp) str += `${this.formatTimestamp(data.timestamp)} `;
     str += this.formatLevel(data.level);
     str += `${this.formatPid()} `;
-    str += `${this.formatLoggerName(logger.name)}: `;
+    str += `${this.formatName(logger.name, data)}: `;
 
     if (data.prefix) str += `${data.prefix} ｜`;
     str += this.formatMessage(data.input as unknown[]).trim();
@@ -77,10 +77,11 @@ export class PrettyFormatter implements Formatter {
    * Formats the logger name.
    * @param name The logger name.
    */
-  protected formatLoggerName(name: string): string {
+  protected formatName(name: string, data: LogData): string {
     let str = "";
     str += Color.get(ColorCode.GRAY)("(");
     str += this.colors.get(ColorKey.LOG_LOGGER_NAME)?.(name);
+    if (data.name) str += `:${this.colors.get(ColorKey.LOG_NAME)?.(data.name)}`;
     str += Color.get(ColorCode.GRAY)(")");
     return str;
   }

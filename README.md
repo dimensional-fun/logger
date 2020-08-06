@@ -5,14 +5,9 @@
 ## Usage
 
 ```ts
-import LoggerFactory, { ConsoleTransport, PrettyFormatter, LogLevel, config } from "@melike2d/logger";
+import { Logger, ConsoleTransport, PrettyFormatter, LogLevel, config } from "@melike2d/logger";
 
-const logger = LoggerFactory.getLogger({
-  prefix: "main", // Logger Prefix.
-  transports: [new ConsoleTransport()], // Transports
-  formatters: [new PrettyFormatter("console")], // Log Formatters
-});
-
+const logger = new Logger("main");
 logger.info("very cool")
 logger.debug(config({ timestamp: false }), "Something Happened");
 ```

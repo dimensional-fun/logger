@@ -5,7 +5,7 @@
 ## Usage
 
 ```ts
-import { Logger, ConsoleTransport, PrettyFormatter, LogLevel, config } from "@melike2d/logger";
+import { Logger, config } from "@melike2d/logger";
 
 const logger = new Logger("main");
 logger.info("very cool")

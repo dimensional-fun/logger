@@ -2,8 +2,6 @@
 
 > A custom logger for my personal projects (based off [@ayanaware/logger](https://npmjs.com/@ayanaware/logger)
 
-- Colored and Colorless Loggers.
-
 ## Usage
 
 ```ts

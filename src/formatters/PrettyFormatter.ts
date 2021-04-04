@@ -95,9 +95,16 @@ export class PrettyFormatter implements Formatter {
     for (const data of input) {
       if (data instanceof Error) {
         const formatted = this.formatError(data);
-        if (msg.length > 0) msg += `${formatted}`;
-        else msg += formatted;
-      } else msg += `${data} `;
+        if (msg.length > 0) {
+          msg += `${formatted}`;
+          continue;
+        }
+
+        msg += formatted;
+        continue;
+      }
+
+      msg += `${data} `;
     }
 
     return msg;

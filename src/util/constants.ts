@@ -56,5 +56,3 @@ export const PrettyFormatterColors = new Map<PrettyFormatterColorKey, ColorCode>
   .set(ColorKey.ERROR_LOCATION, ColorCode.DIM)
   .set(ColorKey.ERROR_NODEJS_SOURCE_MAP_ARROW, ColorCode.GREEN)
   .set(ColorKey.ERROR_NODEJS_SOURCE_MAP_LOCATION, ColorCode.DIM);
-
-

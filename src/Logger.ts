@@ -157,10 +157,8 @@ export class Logger {
 }
 
 const ConfigSymbol = Symbol("LOG_CONFIG_SYMBOL");
-export const config = (data: LogConfigData): LogConfigData => ({
-  ...data,
-  [ConfigSymbol]: true,
-});
+
+export const config = (data: LogConfigData): LogConfigData => ({ ...data, [ConfigSymbol]: true, });
 
 export interface LogConfigData {
   timestamp?: Date | number | false;
@@ -176,4 +174,5 @@ export interface LogConfigData {
 export interface LoggerOptions {
   transports?: Transport<TransportOptions>[];
   defaults?: LogConfigData;
+  levels?: LogLevel[]
 }

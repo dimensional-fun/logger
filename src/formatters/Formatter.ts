@@ -1,6 +1,5 @@
 import type { LogLevel } from "../util/constants";
-import type { LogConfigData } from "../Logger";
-import type { Logger } from "../Logger";
+import type { LogConfigData, Logger } from "../Logger";
 
 export interface Formatter {
   /**

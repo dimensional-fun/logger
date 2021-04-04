@@ -1,12 +1,16 @@
 {
   "name": "@dimensional-fun/logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A logger for stuff",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc"
   },
+  "bugs": {
+    "url": "https://github.com/dimensional-fun/logger/issues"
+  },
+  "homepage": "https://github.com/dimensional-fun/logger#readme",
   "author": "melike2d <lol@dimensional.fun>",
   "license": "MIT",
   "devDependencies": {
@@ -20,5 +24,8 @@
     "ansi-styles": "^4.2.1",
     "color-convert": "^2.0.1",
     "fecha": "^4.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
